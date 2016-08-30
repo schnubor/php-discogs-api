@@ -232,6 +232,43 @@ return [
             'uri' => 'oauth/identity',
             'responseModel' => 'GetResponse',
         ],
+        'getCollectionItemsByFolder' => [
+            'httpMethod' => 'GET',
+            'uri' => '/users/{username}/collection/folders/{folder_id}/releases',
+            'responseModel' => 'GetResponse',
+            'parameters' => [
+                'username' => [
+                    'type' => 'string',
+                    'location' => 'uri',
+                    'required' => true
+                ],
+                'folder_id' => [
+                    'type' => 'integer',
+                    'location' => 'uri',
+                    'required' => true
+                ],
+                'sort' => [
+                    'type' => 'string',
+                    'location' => 'query',
+                    'required' => false,
+                ],
+                'sort_order' => [
+                    'type' => 'string',
+                    'location' => 'query',
+                    'required' => false,
+                ],
+                'per_page' => [
+                    'type' => 'integer',
+                    'location' => 'query',
+                    'required' => false
+                ],
+                'page' => [
+                    'type' => 'integer',
+                    'location' => 'query',
+                    'required' => false
+                ]
+            ]
+        ],
         'getInventory' => [
             'httpMethod' => 'GET',
             'uri' => 'users/{username}/inventory',
